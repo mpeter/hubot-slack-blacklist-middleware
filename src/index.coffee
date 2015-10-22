@@ -1,27 +1,27 @@
 # Configuration:
-#   HUBOT_WHITELIST
-#   HUBOT_WHITELIST_PATH
+#   HUBOT_blacklist
+#   HUBOT_blacklist_PATH
 
 reach = require('hoek').reach
 path = require('path')
 
 module.exports = (robot) ->
 
-  # Establish whitelist
-  whitelist = []
-  if process.env.HUBOT_WHITELIST
-    whitelist = process.env.HUBOT_WHITELIST.split(',')
-  else if process.env.HUBOT_WHITELIST_PATH
-    whitelist = require(path.resolve(process.env.HUBOT_WHITELIST_PATH))
+  # Establish blacklist
+  blacklist = []
+  if process.env.HUBOT_BLACKLIST
+    blacklist = process.env.HUBOT_BLACKLIST.split(',')
+  else if process.env.HUBOT_BLACKLIST_PATH
+    blacklist = require(path.resolve(process.env.HUBOT_BLACKLIST_PATH))
 
-  unless Array.isArray(whitelist)
-    robot.logger.error 'whitelist is not an array!'
+  unless Array.isArray(blacklist)
+    robot.logger.error 'blacklist is not an array!'
 
   robot.receiveMiddleware (context, next, done) ->
-    # Unless the room is in the whitelist
-    unless reach(context, 'response.envelope.room') in whitelist
+    # if the room is in the blacklist
+    if reach(context, 'response.envelope.room') in blacklist
+      next(done)
+    else
       # We're done
       context.response.message.finish()
       done()
-    else
-      next(done)

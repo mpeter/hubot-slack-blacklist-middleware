@@ -1,11 +1,11 @@
 {
-  "name": "hubot-slack-whitelist-middleware",
+  "name": "hubot-slack-blacklist-middleware",
   "version": "1.0.1",
-  "description": "Add ability to whitelist channels in slack.",
+  "description": "Add ability to blacklist channels in slack.",
   "keywords": [
     "hubot",
     "hubot-scripts",
-    "whitelist"
+    "blacklist"
   ],
   "main": "index.coffee",
   "license": "MIT",
@@ -15,10 +15,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michaeljacobdavis/hubot-slack-whitelist-middleware.git"
+    "url": "git+https://github.com/mpeter/hubot-slack-blacklist-middleware.git"
   },
   "bugs": {
-    "url": "https://github.com/michaeljacobdavis/hubot-slack-whitelist-middleware/issues"
+    "url": "https://github.com/mpeter/hubot-slack-blacklist-middleware/issues"
   },
-  "homepage": "https://github.com/michaeljacobdavis/hubot-slack-whitelist-middleware#readme"
+  "homepage": "https://github.com/mpeter/hubot-slack-blacklist-middleware#readme"
 }
